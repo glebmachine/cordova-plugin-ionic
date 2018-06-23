@@ -591,7 +591,9 @@ static NSOperationQueue *delegateQueue;
                 NSString *query = [NSString stringWithFormat:@"cordova_js_bootstrap_resource=%@", self.cordova_js_resource];
 
                 NSURLComponents *components = [NSURLComponents new];
-                components.scheme = @"file";
+                components.scheme = @"http";
+                components.host = @"localhost";
+                components.port = @((int) 8080);
                 components.path = [NSString stringWithFormat:@"%@/%@/index.html", libraryDirectory, uuid];
                 components.query = query;
 
